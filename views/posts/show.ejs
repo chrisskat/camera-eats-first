@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+ <nav>
+    <a href="/posts">Feed</a>
+    <a href="/posts/new">Add Post</a>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <a href="/logout" class="logout">LOG OUT</a>
+    </nav>
+<main>
+<section id="show-page">
+    <div>Title: <%= post.title %></div>
+    <div>Image URL: <%= post.imageUrl %></div>
+    <div>Username: <%= post.userName %></div>
+    <div>Description: <%= post.description %></div>
+</section>
+
+<br><br>
+<% if (user) { %>
+  <h2>Comments</h2>
+  <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+    <label>Comments:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Comment">
+  </form>
+<% } %>
+
+<% if (post.comments.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% post.comments.forEach(function(r) { %>
+          <tr>
+            <td class="comment-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.content %></td>
+          </tr>
+          <td>
+            <% if (user && user._id.equals(r.user)) { %>
+              <form action="/comments/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Comment</button>
+              </form>
+            <% } %>
+          </td>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Comments Yet</h5>
+  <% } %>
+
+</main>

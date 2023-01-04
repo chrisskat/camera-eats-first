@@ -1,19 +1,118 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #201d1d;
 }
 
-a {
-  color: #00B7FF;
+body {
+  margin: 0;
+  height: 0vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main"
+}
+
+.login img {
+  height: 20px;
+}
+
+.login-message img {
+  height: 20px;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #090a0b;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0 30px;
 }
 
 .login {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
+  justify-content: flex-end;
 }
 
-.login img {
-  height: 30px;
+nav > img {
+  width: 34px;
+  object-fit: contain;
+  margin-right: auto;
 }
+nav > a {
+  margin: 30px;
+  text-decoration: none;
+  color: rgb(156, 105, 39);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav > a:hover:not(.active) {
+  color: white;
+  background-color: #424748;
+}
+
+nav > a.active {
+  color: white;
+  cursor: default;
+}
+
+.comment-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+html {
+  background-color: rgba(156, 105, 39, 0.475);
+}
+
+body > h1 {
+  text-align: center;
+
+}
+
+table {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+ 
+}
+
+tbody {
+  padding: black;
+}
+tr {
+  flex-basis: 33.33333333%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 10px 5px;
+  padding: #0f1112;
+  width: 600px;
+  border-radius: 10%;
+}
+
+
+  td {
+  flex-basis: 100%;
+  text-align: left;
+  display: flex;
+  padding: 1px;
+  border: 9px solid rgba(0, 0, 0, 0.925);
+  background-color: rgba(0, 0, 0, 0.925);
+  color: white;
+  }
+
+  img {
+    color: white
+  }
+
+  td.title {
+    font-style: oblique;
+  }
+

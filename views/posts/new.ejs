@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+<body>
+    <nav>
+    <a href="/posts">Feed</a>
+    <a href="/posts/new">Add Post</a>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% if (user) { %>
+    <a href="/logout">LOG OUT</a>
+    <% } %>
+    </nav>
+
+    <% if (user) { %>
+    <h1>New Post</h1>
+<form action="/posts" method="POST">
+  <label>Title:
+    <input type="text" name="title">
+  </label><br>
+  <label>Image Url:
+    <input type="text" name="imageUrl">
+  </label><br>
+  <label>Description:
+    <input type="text" name="description">
+  </label><br>
+  <input type="submit" value="Add Post">
+</form>
+<% } else { %>
+    <h5>Sign in to Add a Post</h5>
+    <a href="/auth/google" class="login-message">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+<% } %>
+
+</body>
+</html>

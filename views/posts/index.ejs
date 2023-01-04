@@ -8,12 +8,40 @@
   <title>Test</title>
 </head>
 <body>
-  <nav>
-
-      <a href="/logout">LOG OUT</a>
     
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-   
+  <nav>
+    <a href="/posts">Feed</a>
+    <a href="/posts/new">Add Post</a>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <a href="/logout" class="logout">LOG OUT</a>
+    
+ 
   </nav>
-  <main>
+  <p class="feed">
+  <h1>Feed</h1>
+  <table>
+    
+    <tbody>
+    <% posts.forEach(function(m){ %>
+        <tr>
+          <td class="post-user"><img alt="avatar" src="<%= m.userAvatar %>"><%= m.userName %></td>
+          <td class="title"><%= m.title %></td>
+          <td><%= m.imageUrl %></td>
+          <td><%= m.description %></td>
+          <td><a href="/posts/<%= m._id %>">EXPAND</a></td>
+        
+        <td>
+        <% if (user && user._id.equals(m.user)) { %>
+            <form action="/posts/<%= m._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete Post</button>
+            </form>
+          <% } %>
+        </td>
+    </tr>
+    <% }) %>
+    </tbody>
+  </table>
+</p>
+</body>
+</html>
  
