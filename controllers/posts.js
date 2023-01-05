@@ -8,6 +8,7 @@ module.exports = {
     create,
     show,
     delete: deletePost,
+    edit,
     update
 }
 
@@ -51,9 +52,29 @@ function create(req, res) {
   });
 }
 
-async function update(req, res) {
-    let post = await Post.findByIdAndUpdate(req.params.id)
 
-
-    
+function edit(req, res) {
+    Post.findById(req.params.id).then(function (post) {
+    res.render("posts/edit", {post})
+ })
 }
+
+async function update(req, res, next) {
+    try{
+    const filter = { _id: req.params.id };
+        let post = await Post.findOneAndUpdate(filter, req.body, {
+            upsert: true
+        });
+        await post.save((err) => {
+            return res.redirect("/posts/")
+        })
+    
+    
+    } catch{(err)=>{
+    console.warn(err.message)
+    
+    }
+    
+    }
+        
+    }

@@ -65,6 +65,10 @@ nav > a.active {
   height: 40px;
 }
 
+html.edit {
+  background-color: rgba(156, 105, 39, 0.475);
+
+}
 html {
   background-color: rgba(156, 105, 39, 0.475);
 }
