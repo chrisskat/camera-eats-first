@@ -19,16 +19,15 @@
   </nav>
   <p class="feed">
   <h1>Feed</h1>
-  <table>
-    
+  <table class="table-index">
     <tbody>
     <% posts.forEach(function(m){ %>
         <tr>
-          <td class="post-user"><img alt="avatar" src="<%= m.userAvatar %>"><%= m.userName %></td>
+          <td class="post-user"><img class="post-user" alt="avatar" src="<%= m.userAvatar %>"><strong><%= m.userName %></strong></td>
           <td class="title"><%= m.title %></td>
           <td><%= m.imageUrl %></td>
           <td><%= m.description %></td>
-          <td><a href="/posts/<%= m._id %>">EXPAND</a></td>
+          <td><a href="/posts/<%= m._id %>">Comments</a></td>
         
         <td>
         <% if (user && user._id.equals(m.user)) { %>

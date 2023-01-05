@@ -16,36 +16,24 @@
     </nav>
 <main>
 <section id="show-page">
-    <div>Title: <%= post.title %></div>
-    <div>Image URL: <%= post.imageUrl %></div>
-    <div>Username: <%= post.userName %></div>
-    <div>Description: <%= post.description %></div>
+    <div class="title"><%= post.title %></div>
+    <div class="image"><%= post.imageUrl %></div>
+    <div class="username"><strong><%= post.userName %></strong></div>
+    <div class="description"><%= post.description %></div>
 </section>
 
 <br><br>
-<% if (user) { %>
-  <h2>Comments</h2>
-  <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
-    <label>Comments:</label>
-    <textarea name="content"></textarea>
-    <input type="submit" value="Add Comment">
-  </form>
-<% } %>
+<h2 class="comment">Comments</h2>
+
 
 <% if (post.comments.length) { %>
     <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Date</th>
-          <th>Comment</th>
-        </tr>
-      </thead>
+
       <tbody>
         <% post.comments.forEach(function(r) { %>
-          <tr>
+          <tr class="tr-comments">
             <td class="comment-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
-            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td class="date-of-comment"><%= r.createdAt.toLocaleDateString() %></td>
             <td><%= r.content %></td>
           </tr>
           <td>
@@ -62,4 +50,11 @@
     <h5>No Comments Yet</h5>
   <% } %>
 
+<% if (user) { %>
+  
+  <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Comment">
+  </form>
+<% } %>
 </main>
