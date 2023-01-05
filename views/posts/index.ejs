@@ -31,6 +31,9 @@
         
         <td>
         <% if (user && user._id.equals(m.user)) { %>
+            <form action="/posts/<%= m._id %>?_method=PUT" method="POST">
+                <button type="submit">Update Post</button>
+              </form>
             <form action="/posts/<%= m._id %>?_method=DELETE" method="POST">
               <button type="submit">Delete Post</button>
             </form>

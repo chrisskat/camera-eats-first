@@ -14,7 +14,7 @@ body {
     "main"
 }
 
-.login img {
+.login img, .login-user img {
   height: 20px;
 }
 
@@ -171,6 +171,11 @@ tr {
   color: rgb(26, 26, 220)
  }
 
+ a.main {
+  font-weight: 600;
+  font-size: larger;
+ }
+
  form#add-comment-form {
   padding: 5px;
  }
@@ -209,4 +214,9 @@ a.login-message {
 
 img.post-user {
   width: 15%;
+}
+
+body.main {
+  flex-basis: 100%;
+  text-align: center;
 }

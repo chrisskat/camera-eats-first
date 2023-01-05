@@ -13,4 +13,6 @@ router.post('/', postsCtrl.create)
 
 router.delete('/:id', postsCtrl.delete)
 
+router.put('/:id', postsCtrl.update)
+
 module.exports = router;

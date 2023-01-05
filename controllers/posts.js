@@ -7,7 +7,8 @@ module.exports = {
     new: newPost,
     create,
     show,
-    delete: deletePost
+    delete: deletePost,
+    update
 }
 
 
@@ -35,8 +36,6 @@ async function deletePost(req, res) {
     res.redirect('/posts')
 }
 
-
-
 function create(req, res) {
     
     req.body.user = req.user._id;
@@ -52,3 +51,9 @@ function create(req, res) {
   });
 }
 
+async function update(req, res) {
+    let post = await Post.findByIdAndUpdate(req.params.id)
+
+
+    
+}
