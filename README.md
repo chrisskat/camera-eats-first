@@ -5,11 +5,13 @@
 - This is a site where you can post your meals for the world to see! 
 
 # List of Technologies used:
+- HTML
 - Javascript
 - Node
 - CSS
 - Mongoose
 - MongoDB
+- Heroku
 
 Sreenshot of the app:
 ![Screen Shot 2023-01-05 at 5 40 55 PM](https://user-images.githubusercontent.com/117867407/210894517-e77af2fc-85f0-405d-9975-0ce1be2bd3b7.png)
