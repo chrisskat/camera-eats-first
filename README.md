@@ -5,9 +5,8 @@
 - This is a site where you can post your meals for the world to see! 
 
 # List of Technologies used:
-- HTML
 - Javascript
-- EJS
+- Node
 - CSS
 - Mongoose
 - MongoDB
